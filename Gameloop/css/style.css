@@ -1,0 +1,41 @@
+img{
+    width: 100%;
+}
+
+.button{
+    background-color: #000000;
+    border : none;
+    box-shadow: 0 9px gray;
+    padding: 30px;
+    text-align:  center;
+    font-size: 28px;
+}
+
+.button:hover{
+    background-color: darkslategray;
+}
+
+.button:active{
+    box-shadow: 0 5px gray;
+    transform: translateY(5px);
+}
+
+.red{
+    color:red;
+}
+
+.green{
+    color:green;
+}
+
+.blue{
+    color:blue;
+}
+
+.yellow{
+    color:yellow;
+}
+
+.round {
+    border-radius: 50%;
+}
