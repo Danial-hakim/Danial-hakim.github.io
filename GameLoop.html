@@ -1,46 +1,34 @@
-<!doctype html>
+<!DOCTYPE html>
+<html>
+<body onload="onPageLoad()">
 
-<html lang="en">
+<h1>Request Parameters</h1>
 
-<head>
-    <meta charset="utf-8">
-    <title>GameLoop Example</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="HTML5 GameLoop Template">
-    <meta name="author" content="UI Programming">
+<form action="https://danial-hakim.github.io/" method="get">
+    <input type="text" value="test" name="gamertag">
+    <button type="submit">Submit</button>
+  </form>
 
-    <!--StyleSheet-->
-    <link rel="stylesheet" href="./css/style.css">
-    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+<script>
+function onPageLoad() {
+var href = window.location.href;
+    alert(href);
+   
+    var protocol = window.location.protocol;
+    alert(protocol);
+   
+    var host = window.location.host;
+    alert(host);
+   
+   
+    var pathname = window.location.pathname;
+    alert(pathname);
+   
+    var search = window.location.search;
+    alert(search);
+   
+}
+</script>
 
-</head>
-
-<body>
-    <canvas tabindex="1" id="game" width="800" height="800" style="border: black 1px solid;">
-        Oops! looks like your browser does not support canvas tag
-    </canvas>
-        <table>
-            <tbody>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td><button onclick="buttonOnClickUp()" class="button yellow round">Y</button></td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td><button onclick="buttonOnClickLeft()" class="button blue round">X</button></td>
-                    <td>&nbsp;</td>
-                    <td><button onclick="buttonOnClickRight()" class="button red round">B</button></td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td><button onclick="buttonOnClickDown()" class="button green round">A</button></td>
-                    <td>&nbsp;</td>
-                </tr>
-            </tbody>
-        </table>
 </body>
-
-    <!--JavaScript File-->
-    <script src="./js/script.js"></script>
-
 </html>
