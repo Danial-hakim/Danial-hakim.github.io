@@ -9,6 +9,11 @@ var canvas = document.getElementById("game");
 // get 2D context for this canvas
 var context = canvas.getContext("2d");
 
+//
+var url = window.location.search;
+var result = new URLSearchParams(url);
+var getName = result.get("userGamerTag")
+
 function GameObject(name, img, health) {
     this.name = name;
     this.img = img;
@@ -192,18 +197,14 @@ function animate() {
 
     context.font = '36pt Orbitron';
 }
-function onPageLoad()
-{
-    splitFunction();
-}
+
 function splitFunction()
 {
-    var url = window.location.search;
-    console.log(url);
-    var result = url.split("-");
-    document.getElementById("userGamerTag").innerHTML = result[1];
+   document.getElementById("welcome").innerHTML = getName;
 }
+
 window.requestAnimationFrame(gameloop);
+splitFunction();
 
 function gameloop() {
     update();
