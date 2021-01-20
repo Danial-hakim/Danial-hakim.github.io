@@ -192,8 +192,19 @@ function animate() {
 
     context.font = '36pt Orbitron';
 }
-
+function onPageLoad()
+{
+    splitFunction();
+}
+function splitFunction()
+{
+    var url = window.location.search;
+    console.log(url);
+    var result = url.split("-");
+    document.getElementById("myGamerTag").innerHTML = result[1];
+}
 window.requestAnimationFrame(gameloop);
+
 function gameloop() {
     update();
     draw();
