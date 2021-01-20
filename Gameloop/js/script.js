@@ -201,7 +201,7 @@ function splitFunction()
     var url = window.location.search;
     console.log(url);
     var result = url.split("-");
-    document.getElementById("myGamerTag").innerHTML = result[1];
+    document.getElementById("userGamerTag").innerHTML = result[1];
 }
 window.requestAnimationFrame(gameloop);
 
