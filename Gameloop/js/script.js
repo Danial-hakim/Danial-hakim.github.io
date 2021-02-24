@@ -9,10 +9,7 @@ var canvas = document.getElementById("game");
 // get 2D context for this canvas
 var context = canvas.getContext("2d");
 
-//
-var url = window.location.search;
-var result = new URLSearchParams(url);
-var getName = result.get("userGamerTag")
+var score = 0;
 
 function GameObject(name, img, health) {
     this.name = name;
@@ -97,43 +94,52 @@ function update() {
     
         if (gamerInput.action === "Up") {
             gameobjects[0].y -= 5;
+            updatePosition();
             console.log("Up");
         }
 
-        if (gamerInput.action === "Down") {
+        if (gamerInput.action === "Down"){
             gameobjects[0].y += 5;
+            updatePosition();
             console.log("Down");
         }
 
         if(gamerInput.action === "Left"){
            gameobjects[0].x -= 5;
+           updatePosition();
            console.log("Left");
         }
 
         if(gamerInput.action === "Right"){
             gameobjects[0].x += 5;
+            updatePosition();
             console.log("Right");
         }
 
-        if((gameobjects[0].x === gameobjects[1].x + 25) || (gameobjects[0].x === gameobjects[1].x - 25))
-        {
-            ((gameobjects[0].y === gameobjects[1].y + 25) || (gameobjects[0].y === gameobjects[1].y - 25))
+        if((gameobjects[0].x === gameobjects[1].x + 50) || (gameobjects[0].x === gameobjects[1].x - 50))
+        { 
+            if((gameobjects[0].y === gameobjects[1].y + 50) || (gameobjects[0].y === gameobjects[1].y - 50))
             {
-                console.log("GOALLL!!");
+               console.log("GOALLL!!");
+               score = score + 1;
+               gameobjects[0].x = 100;
+               gameobjects[0].y = 100;
             }
-            
         }
         
-        if(counter === 1000)
+        if(counter === 10000)
         {
             console.log("Time is up");
             console.log("Stop scoring !!");
         }
-        else if (counter <= 1000)
+        else if (counter <= 10000)
         {
             counter++;
         }       
-    
+        if(gameobjects[0].x > 800 || gameobjects[0].y > 800)
+        {
+            resetPosition();
+        }
 }
 function buttonOnClickUp()
 {
@@ -198,14 +204,7 @@ function animate() {
     context.font = '36pt Orbitron';
 }
 
-function splitFunction()
-{
-   document.getElementById("welcome").innerHTML = getName;
-}
-
 window.requestAnimationFrame(gameloop);
-splitFunction();
-
 function gameloop() {
     update();
     draw();
@@ -219,3 +218,53 @@ window.addEventListener('keyup', input);
 window.addEventListener('keydown', input);
 window.addEventListener('keyleft', input);
 window.addEventListener('keyright', input);
+
+
+function updatePosition() 
+{
+      localStorage.setItem('posX',gameobjects[0].x);
+      document.getElementById("posXText").innerHTML = " [ " + localStorage.getItem('posX') + " ] ";
+//-------------------------------------------------------------------------------------------------------------
+      localStorage.setItem('posY',gameobjects[0].y);
+      document.getElementById("posYText").innerHTML = " [ " + localStorage.getItem('posY') + " ] ";
+}
+
+function getPositionStorage() 
+{
+    var current_posX = localStorage.getItem('posX');
+
+    if (isNaN(current_posX)) 
+    {
+        localStorage.setItem('posX',gameobjects[0].x);
+        document.getElementById("posXText").innerHTML = " [ " + localStorage.getItem('posX') + " ] ";
+      }
+
+      gameobjects[0].x=localStorage.getItem('posX'); 
+      document.getElementById("posXText").innerHTML = " [ " + localStorage.getItem(parseInt('posX')) + " ] ";
+    //---------------------------------------------------------------------------------------------------------
+      var current_posY = localStorage.getItem('posY');
+
+      if (isNaN(current_posY)) 
+      {
+          localStorage.setItem('posY',gameobjects[0].y);
+          document.getElementById("posYText").innerHTML = " [ " + localStorage.getItem('posY') + " ] ";
+        }
+
+        gameobjects[0].y=localStorage.getItem('posY'); 
+        document.getElementById("posYText").innerHTML = " [ " + localStorage.getItem(parseInt('posY')) + " ] "
+
+
+}
+
+function onPageLoad()
+{
+    getPositionStorage();
+}
+
+function resetPosition()
+{
+    localStorage.setItem('posX',0); 
+    gameobjects[0].x=0;
+    localStorage.setItem('posY',0);
+    gameobjects[0].y=0;
+}
