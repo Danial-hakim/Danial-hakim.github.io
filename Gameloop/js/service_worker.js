@@ -1,8 +1,8 @@
-var cacheName = 'razz-pwa';
+var cacheName = 'danial-pwa';
 var filesToCache = [
   '/',
   '/index.html',
-  '/css/push.css',
+  '/css/style.css',
   '/js/script.js'
 ];
 
