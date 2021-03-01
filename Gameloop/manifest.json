@@ -1,33 +1,33 @@
 {
-    "name": "MuddyGames Progressive Web Application",
-    "short_name": "MuddyGames PWA",
+    "name": "Football game",
+    "short_name": "Football",
 
     "icons": [{
-        "src": "img/icons/128_128.png",
+        "src": "img/icon/128_128.png",
         "sizes": "128x128",
         "type": "image/png"
     }, {
-        "src": "img/icons/144_144.png",
+        "src": "img/icon/144_144.png",
         "sizes": "144x144",
         "type": "image/png"
     }, {
-        "src": "img/icons/152_152.png",
+        "src": "img/icon/152_152.png",
         "sizes": "152x152",
         "type": "image/png"
     }, {
-        "src": "img/icons/192_192.png",
+        "src": "img/icon/192_192.png",
         "sizes": "192x192",
         "type": "image/png"
     }, {
-        "src": "img/icons/256_256.png",
+        "src": "img/icon/256_256.png",
         "sizes": "256x256",
         "type": "image/png"
     }, {
-        "src": "img/icons/512_512.png",
+        "src": "img/icon/512_512.png",
         "sizes": "512x512",
         "type": "image/png"
     }, {
-        "src": "img/icons/maskable_icon.png",
+        "src": "img/icon/maskable_icon.png",
         "sizes": "196x196",
         "type": "image/png",
         "purpose": "any maskable"
