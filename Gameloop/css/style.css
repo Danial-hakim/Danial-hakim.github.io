@@ -6,7 +6,8 @@ img{
     background-color: #000000;
     border : none;
     box-shadow: 0 9px gray;
-    padding: 30px;
+    width:150px;
+    height:100px ;
     text-align:  center;
     font-size: 28px;
 }
@@ -32,10 +33,45 @@ img{
     color:blue;
 }
 
-.yellow{
-    color:yellow;
+.oval {
+    border-radius: 20%;
 }
 
-.round {
-    border-radius: 50%;
+canvas#game{
+    width: 90%;
+}
+
+.btn-group button{
+    background-color: darkslategray;
+    border: 3px solid gray;
+    color: goldenrod;
+    padding: 10px 24px;
+    cursor: pointer;
+    float: left;
+    font-weight: 900;
+}
+
+.btn-group:after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.btn-group button:not(:last-child){
+    border-right: none;
+}
+
+.btn-group button:hover{
+    background-color: goldenrod;
+    color:darkslategray;
+}
+
+.title button{
+    background-color: transparent;
+    border: 3px solid gray;
+    color: black;
+    padding: 10px 24px;
+    cursor: pointer;
+    float: left;
+    font-weight: 900;
 }

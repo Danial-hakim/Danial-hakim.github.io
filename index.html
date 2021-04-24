@@ -2,7 +2,7 @@
 <html>
 <body onload="onPageLoad()">
 
-<h1>Enter your name and password</h1>
+<h1>Enter your gamerTag</h1>
 
 <form action="./Gameloop/index.html" method="get">
     <input type="text" value="Username" name="userGamerTag">
@@ -12,19 +12,14 @@
 <script>
 function onPageLoad() {
 var href = window.location.href;
-
+ 
+var protocol = window.location.protocol;
+  
+var host = window.location.host;
+  
+var pathname = window.location.pathname;
    
-    var protocol = window.location.protocol;
-
-   
-    var host = window.location.host;
-
-   
-   
-    var pathname = window.location.pathname;
-
-   
-    var search = window.location.search;
+var search = window.location.search;
 
    
 }
