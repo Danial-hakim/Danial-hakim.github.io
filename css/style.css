@@ -43,7 +43,7 @@ canvas#game{
 
 .btn-group button{
     background-color: darkslategray;
-    border: 3px solid gray;
+    border: 3px solid rgb(115, 8, 177);
     color: goldenrod;
     padding: 10px 24px;
     cursor: pointer;
