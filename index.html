@@ -1,30 +1,78 @@
-<!DOCTYPE html>
-<html>
-<body onload="onPageLoad()">
+<!doctype html>
 
-<h1>Enter your gamerTag</h1>
+<html lang="en">
 
-<form action="./Gameloop/index.html" method="get">
-    <input type="text" value="Username" name="userGamerTag">
-    <button type="submit">Submit</button>
-  </form>
+<head>
+    <meta charset="utf-8">
+    <title>Swamp Adventure</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Swamp Adventure">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Danial">
 
-<script>
-function onPageLoad() {
-var href = window.location.href;
- 
-var protocol = window.location.protocol;
-  
-var host = window.location.host;
-  
-var pathname = window.location.pathname;
-   
-var search = window.location.search;
+    <link rel="manifest" href="/manifest.json">
 
-   
-}
-</script>
-<script src="./register.js"></script>
+    <!--StyleSheet-->
+    <link rel="stylesheet" href="./css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
 
+    <link rel="apple-touch-icon" href="./img/icon/152_152.png"> 
+    <meta name="theme-color" content="white" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Swamp Adventure">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-title" content="Swamp Adventure">
+
+    <meta name="msapplication-TileImage" content="./img/icon/144_144.png"> 
+    <meta name="msapplication-TileColor" content="#FFFFFF"> 
+
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon"> 
+
+</head>
+
+<body>
+    <canvas tabindex="1" id="game"style="border: black 5px solid;">
+        Oops! looks like your browser does not support canvas tag
+    </canvas>
+        <table>
+            <tbody>
+                <tr>
+                    <div class = "title" style ="width: 91.2%;">
+                    <button style="width: 100%;"> Choose 1 weapon </button>
+                    </div>
+                </tr>
+                <tr>               
+                    <div class = "btn-group" style ="width: 91.2%;">
+                    <button onclick ="bladeOnClick()" style="width: 33.3%">Blades</button>         
+                    <button onclick ="boxingOnClick()"style="width: 33.4%">Boxing</button>
+                    <button onclick ="shieldOnClick()"style="width: 33.3%">Shield</button>
+                    </div>                           
+                </tr>
+                <tr> 
+                    <td>
+                        <div id="atkButtonDiv" style="display: none;">
+                        <button class="button red oval" onclick="atkOnClick()" >ATK</button>
+                    </div>
+                    </td>            
+                    <td>
+                        <div id="counterButtonDiv" style="display: none;">
+                            <button class="button green oval" onclick="counterOnClick()" >COUNTER</button>
+                        </div> 
+                    </td>
+                    <td>
+                        <div id="defButtonDiv" style="display: none;">
+                            <button class="button blue oval" onclick="defOnClick()">DEF</button>
+                        </div> 
+                    </td>          
+                </tr>
+         </tbody>
+    </table>
 </body>
+
+    <!--JavaScript File-->
+    <script src="./js/script.js"></script>
+
 </html>
