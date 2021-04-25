@@ -27,6 +27,12 @@ enemyNPCSprite.src = "./img/enemyOne.png";
 var backgroundSprite = new Image();
 backgroundSprite.src = "./img/background500.png";
 
+var winScreenSprite = new Image();
+winScreenSprite.src = "./img/backgroundWon.png";
+
+var loseScreenSprite = new Image();
+loseScreenSprite.src ="./img/backgroundLose.png";
+
 // The GamerInput is an Object that holds the Current
 // GamerInput (Left, Right, Up, Down)
 function GamerInput(input) {
@@ -63,19 +69,34 @@ function input(event) {
     console.log("Gamer Input :" + gamerInput.action);
 }
 
-function update() {
-    //used for animation
-}
-
+var isGameWon = false;
+var isGameLose = false;
+var duringGamePlay = true;
 // Draw GameObjects to Console
 // Modify to Draw to Screen
 function draw() {
     // Clear Canvas
     // Draw each GameObject
     context.clearRect(0, 0 ,canvas.width, canvas.height);
-    context.drawImage(backgroundSprite,0,0);
-    drawHealthBar(playerHealth,enemyHealth);
-    animate();
+
+    if(duringGamePlay == true)
+    {
+        context.drawImage(backgroundSprite,0,0);
+        drawHealthBar(playerHealth,enemyHealth);
+        animate();
+    }
+
+    if(isGameLose == true)
+    {
+        context.drawImage(loseScreenSprite,0,0);
+        enemyHealth = 10000;
+    }
+
+    if(isGameWon == true)
+    {
+        context.drawImage(winScreenSprite,0,0);
+        playerHealth = 10000;
+    }
 }
 
 var x = 0,
@@ -112,7 +133,6 @@ function animate() {
 window.requestAnimationFrame(gameloop);
 
 function gameloop() {
-    update();
     draw();
     window.requestAnimationFrame(gameloop);
 }
@@ -212,6 +232,20 @@ function damageCalculator(){
     enemyHealth = enemyHealth - damageToEnemy;
     playerHealth = playerHealth - damageToPlayer;
     inCombat = true;
+
+    if(playerHealth <= 0)
+    {
+        duringGamePlay = false;
+        isGameLose = true;
+    }
+
+    if(enemyHealth <= 0)
+    {
+        duringGamePlay = false;
+        isGameWon = true;
+    }
+
+    updateHealthBar();
 }
 
 function randomNumberGenerator(maxVal)
