@@ -1,7 +1,7 @@
 var cacheName = 'danial-pwa';
 var filesToCache = [
   '/',
-  '/index.html',
+  '/game.html',
   '/css/style.css',
   '/js/script.js'
 ];
